@@ -68,8 +68,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec brightnessctl set 2%+ # increase screen brightness
-bindsym XF86MonBrightnessDown exec brightnessctl set 2%- # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 2%+ # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 2%- # decrease screen brightness
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -270,9 +270,9 @@ for_window [class=".*"] title_format "<b><i>%title</i></b>"
 default_border none 
 
 
-exec_always feh --no-startup-id --bg-scale /home/marwan/Pictures/wallpapers/calm_mood.jpg 
+exec_always feh --no-startup-id --bg-scale /home/marwan/Pictures/wallpapers/calm_mood.jpg
 exec_always --no-startup-id compton
-exec_always /home/marwan/.screenlayout/HDMI\ connected.sh
+exec_always --no-startup-id /home/marwan/.screenlayout/HDMI\ connected.sh
 
 
 ## Screenshots
