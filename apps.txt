@@ -1,0 +1,10 @@
+pactl 
+brightnessctl 
+rofi 
+systemctl 
+feh 
+compton
+maim 
+xset 
+arandr
+ibus
