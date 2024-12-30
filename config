@@ -271,7 +271,7 @@ for_window [class=".*"] title_format "<b><i>%title</i></b>"
 default_border none
 
 
-exec_always feh --no-startup-id --bg-scale /home/marwan/Pictures/wallpapers/calm_mood.jpg
+exec_always --no-startup-id feh  --bg-scale /home/marwan/Pictures/wallpapers/calm_mood.jpg
 exec_always --no-startup-id compton
 exec_always --no-startup-id /home/marwan/.screenlayout/HDMI\ connected.sh
 
