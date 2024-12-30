@@ -9,3 +9,4 @@ xset
 arandr
 ibus
 xclip
+xdotool
