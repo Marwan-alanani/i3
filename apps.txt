@@ -8,3 +8,4 @@ maim
 xset 
 arandr
 ibus
+xclip
