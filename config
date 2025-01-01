@@ -85,9 +85,21 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun  -font JetBrainsMono Nerd Font Regular 20 -show-icons"
+# bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun  -font JetBrainsMono Nerd Font Regular 20 -show-icons"
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-6/launcher.sh
+# powermenu is for power options
+bindsym $mod+p exec --no-startup-id ~/.config/rofi/applets/bin/powermenu.sh 
+# bindsym $mod+p exec --no-startup-id ~/.config/rofi/powermenu/type-5/powermenu.sh 
+
+# Quicklinks
+bindsym $mod+minus exec --no-startup-id ~/.config/rofi/applets/bin/quicklinks.sh
+
+# Screenshots
+bindsym $mod+equal exec --no-startup-id ~/.config/rofi/applets/bin/screenshot.sh
+
 # start dmenu (a program launcher)
-bindsym $mod+n exec --no-startup-id dmenu_run
+# bindsym $mod+n exec --no-startup-id dmenu_run
+
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -248,16 +260,16 @@ bar {
 
 
 # custom modes
-mode "power" {
-    bindsym r exec --no-startup-id systemctl reboot;mode "default"
-    bindsym p exec --no-startup-id systemctl poweroff;mode "default"
-    bindsym s exec  --no-startup-id systemctl suspend;mode "default"
-    bindsym Escape mode "default"
-    bindsym $mod+p mode "default"
-    bindsym Return mode "default"
-}
+# mode "power" {
+#     bindsym r exec --no-startup-id systemctl reboot;mode "default"
+#     bindsym p exec --no-startup-id systemctl poweroff;mode "default"
+#     bindsym s exec  --no-startup-id systemctl suspend;mode "default"
+#     bindsym Escape mode "default"
+#     bindsym $mod+p mode "default"
+#     bindsym Return mode "default"
+# }
 
-bindsym $mod+p mode "power"
+# bindsym $mod+p mode "power"
 
 # default workspace layout
 workspace_layout tabbed
@@ -277,25 +289,25 @@ exec_always --no-startup-id /home/marwan/.screenlayout/HDMI\ connected.sh
 
 
 ## Screenshots
-bindsym $mod+Shift+s exec --no-startup-id maim --select | xclip -selection clipboard -t image/png;
-bindsym $mod+Shift+Print --no-startup-id maim | xclip -selection clipboard -t image/png;
-bindsym $mod+Shift+a exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png;mode "default"
-bindsym $mod+Print exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date)";mode "default"
+# bindsym $mod+Shift+s exec --no-startup-id maim --select | xclip -selection clipboard -t image/png;
+# bindsym $mod+Shift+Print --no-startup-id maim | xclip -selection clipboard -t image/png;
+# bindsym $mod+Shift+a exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png;mode "default"
+# bindsym $mod+Print exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date)";mode "default"
 
 
-bindsym $mod+Ctrl+Print mode "screenshot"
-mode "screenshot" {
-        # full screen
-        bindsym f exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date)";mode "default"
-        #active window
-        bindsym a exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/Screenshots/$(date)";mode "default"
-        #selection
-        bindsym s exec --no-startup-id maim --select "/home/$USER/Pictures/Screenshots/$(date)";mode "default"
+# bindsym $mod+Ctrl+Print mode "screenshot"
+# mode "screenshot" {
+#         # full screen
+#         bindsym f exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date)";mode "default"
+#         #active window
+#         bindsym a exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/Screenshots/$(date)";mode "default"
+#         #selection
+#         bindsym s exec --no-startup-id maim --select "/home/$USER/Pictures/Screenshots/$(date)";mode "default"
         
-        bindsym Escape mode "default"
-        bindsym $mod+Print mode "default"
-        bindsym Return mode "default"
-}
+#         bindsym Escape mode "default"
+#         bindsym $mod+Print mode "default"
+#         bindsym Return mode "default"
+# }
 
 # extend sleep time
 exec --no-startup-id xset s 900
