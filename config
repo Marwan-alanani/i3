@@ -220,7 +220,7 @@ bindsym $mod+r mode "resize"
 
 # CapsLock and Numlock indicators 
 # bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-# bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3bl     
+# bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
@@ -277,22 +277,20 @@ exec_always --no-startup-id /home/marwan/.screenlayout/HDMI\ connected.sh
 
 
 ## Screenshots
-bindsym $mod+Print mode "screenshot"
+bindsym $mod+Shift+s exec --no-startup-id maim --select | xclip -selection clipboard -t image/png;
+bindsym $mod+Shift+Print --no-startup-id maim | xclip -selection clipboard -t image/png;
+bindsym $mod+Shift+a exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png;mode "default"
+bindsym $mod+Print exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date)";mode "default"
+
+
+bindsym $mod+Ctrl+Print mode "screenshot"
 mode "screenshot" {
         # full screen
-        bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date)";mode "default"
+        bindsym f exec --no-startup-id maim "/home/$USER/Pictures/Screenshots/$(date)";mode "default"
         #active window
         bindsym a exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/Screenshots/$(date)";mode "default"
         #selection
         bindsym s exec --no-startup-id maim --select "/home/$USER/Pictures/Screenshots/$(date)";mode "default"
-
-        ## Clipboard Screenshots
-        #  clipboard full screen
-        bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png;mode "default"
-        # clipboard active window
-        bindsym Ctrl+a exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png;mode "default"
-        # clipboard selection
-        bindsym Ctrl+s exec --no-startup-id maim --select | xclip -selection clipboard -t image/png;mode "default"
         
         bindsym Escape mode "default"
         bindsym $mod+Print mode "default"
