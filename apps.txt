@@ -10,3 +10,4 @@ arandr
 ibus
 xclip
 xdotool
+i3blocks

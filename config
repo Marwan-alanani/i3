@@ -86,7 +86,8 @@ bindsym $mod+q kill
 
 # start rofi (a program launcher)
 # bindsym $mod+d exec --no-startup-id "rofi -modi drun,run -show drun  -font JetBrainsMono Nerd Font Regular 20 -show-icons"
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-6/launcher.sh
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-3/launcher.sh
+
 # powermenu is for power options
 bindsym $mod+p exec --no-startup-id ~/.config/rofi/applets/bin/powermenu.sh 
 # bindsym $mod+p exec --no-startup-id ~/.config/rofi/powermenu/type-5/powermenu.sh 
@@ -283,7 +284,7 @@ for_window [class=".*"] title_format "<b><i>%title</i></b>"
 default_border none
 
 
-exec_always --no-startup-id feh  --bg-scale /home/marwan/Pictures/wallpapers/calm_mood.jpg
+exec_always --no-startup-id feh  --bg-scale /home/marwan/Pictures/wallpapers/night_view.jpg
 exec_always --no-startup-id compton
 exec_always --no-startup-id /home/marwan/.screenlayout/HDMI\ connected.sh
 
@@ -310,7 +311,9 @@ exec_always --no-startup-id /home/marwan/.screenlayout/HDMI\ connected.sh
 # }
 
 # extend sleep time
-exec --no-startup-id xset s 900
-exec --no-startup-id xset +dpms
-exec --no-startup-id xset dpms 0 0 1200
+exec_always --no-startup-id xset s 900
+exec_always --no-startup-id xset +dpms
+exec_always --no-startup-id xset dpms 0 0 1200
 
+# map capslock to escape
+exec_always --no-startup-id setxkbmap -option caps:escape
