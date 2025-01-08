@@ -237,6 +237,8 @@ bindsym $mod+r mode "resize"
 
 bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
+        mode hide      
+        modifier $mod
         # position top
         # status_command i3status -c ~/.config/i3status/i3status.conf
         tray_output primary
@@ -280,8 +282,15 @@ workspace_layout tabbed
 # modifying title layout
 title_align center
 for_window [all] title_window_icon on
-for_window [class=".*"] title_format "<b><i>%title</i></b>"
-default_border none
+for_window [all] title_format "<b><i>%title</i></b>"
+default_border pixel 2px
+hide_edge_borders smart_no_gaps
+focus_on_window_activation none
+workspace_auto_back_and_forth yes
+
+# # use this to add gaps between windows  
+# gaps inner 3px
+# smart_gaps on
 
 
 exec_always --no-startup-id feh  --bg-scale /home/marwan/Pictures/wallpapers/night_view.jpg
@@ -318,11 +327,10 @@ exec_always --no-startup-id xset dpms 0 0 1200
 # map capslock to escape
 exec_always --no-startup-id setxkbmap -option caps:escape
 
-# i3 battery popup
-# visit https://github.com/rjekker/i3-battery-popup/tree/master
-for_window [title="Battery Warning"] sticky enable
-# make sure to add the script to /usr/local/bin 
-# and to install the wav (sound) notification or any other sound you wish to play 
-# script executes every 5 minutes to change that add the -t flag
-exec_always --no-startup-id i3-battery-popup -L 20 -n -i 󰂃 -N -s /home/marwan/custom_scripts/i3-battery-popup/i3-battery-popup.wav
- 
+# # i3 battery popup
+# # visit https://github.com/rjekker/i3-battery-popup/tree/master
+# for_window [title="Battery Warning"] sticky enable
+# # make sure to add the script to /usr/local/bin 
+# # and to install the wav (sound) notification or any other sound you wish to play 
+# # script executes every 5 minutes to change that add the -t flag
+# exec --no-startup-id i3-battery-popup -L 20 -n -N -s /home/marwan/custom_scripts/i3-battery-popup/i3-battery-popup.wav 
