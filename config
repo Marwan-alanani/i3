@@ -39,7 +39,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:JetBrainsMono Nerd Font Semi-Bold 10
+font pango:JetBrainsMono Nerd Font Semi-Bold 11
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanFks to pango).
@@ -308,7 +308,7 @@ exec_always --no-startup-id /home/marwan/.screenlayout/HDMI\ connected.sh
 #         bindsym Escape mode "default"
 #         bindsym $mod+Print mode "default"
 #         bindsym Return mode "default"
-# }
+# } 
 
 # extend sleep time
 exec_always --no-startup-id xset s 900
@@ -317,3 +317,12 @@ exec_always --no-startup-id xset dpms 0 0 1200
 
 # map capslock to escape
 exec_always --no-startup-id setxkbmap -option caps:escape
+
+# i3 battery popup
+# visit https://github.com/rjekker/i3-battery-popup/tree/master
+for_window [title="Battery Warning"] sticky enable
+# make sure to add the script to /usr/local/bin 
+# and to install the wav (sound) notification or any other sound you wish to play 
+# script executes every 5 minutes to change that add the -t flag
+exec_always --no-startup-id i3-battery-popup -L 20 -n -i 󰂃 -N -s /home/marwan/custom_scripts/i3-battery-popup/i3-battery-popup.wav
+ 
