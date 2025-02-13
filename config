@@ -62,8 +62,8 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -71,6 +71,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 2%+ # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 2%- # decrease screen brightness
 
+bindcode 68 exec --no-startup-id brightnessctl set 2%+ # increase screen brightness
+bindcode 67 exec --no-startup-id brightnessctl set 2%- # decrease screen brightness
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -273,8 +275,6 @@ bar {
 # }
 
 # bindsym $mod+p mode "power"
-
-# default workspace layout
 workspace_layout tabbed
 
 
@@ -302,9 +302,9 @@ client.placeholder       $overlay0 $base     $text    $overlay0  $overlay0
 client.background        $base
 
 
-exec_always --no-startup-id feh  --bg-scale /home/marwan/Pictures/wallpapers/night_view.jpg
+exec_always --no-startup-id feh  --bg-scale ~/Pictures/wallpapers/night_view.jpg
 exec_always --no-startup-id compton
-exec_always --no-startup-id /home/marwan/.screenlayout/HDMI\ connected.sh
+exec_always --no-startup-id ~/.screenlayout/'Normal Layout.sh'
 
 
 ## Screenshots
