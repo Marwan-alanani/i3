@@ -275,7 +275,7 @@ bar {
 # }
 
 # bindsym $mod+p mode "power"
-workspace_layout tabbed
+#workspace_layout tabbed
 
 
 
