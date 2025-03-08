@@ -71,8 +71,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 2%+ # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 2%- # decrease screen brightness
 
-bindcode 68 exec --no-startup-id brightnessctl set 2%+ # increase screen brightness
-bindcode 67 exec --no-startup-id brightnessctl set 2%- # decrease screen brightness
+# bindcode 68 exec --no-startup-id brightnessctl set 2%+ # increase screen brightness
+# bindcode 67 exec --no-startup-id brightnessctl set 2%- # decrease screen brightness
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -302,8 +303,8 @@ client.placeholder       $overlay0 $base     $text    $overlay0  $overlay0
 client.background        $base
 
 
-exec_always --no-startup-id feh  --bg-scale ~/Pictures/wallpapers/night_view.jpg
-exec_always --no-startup-id compton
+exec_always --no-startup-id feh  --bg-scale ~/Pictures/wallpapers/starry_night.jpg
+exec_always --no-startup-id picom
 exec_always --no-startup-id ~/.screenlayout/'Normal Layout.sh'
 
 
