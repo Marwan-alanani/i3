@@ -31,7 +31,7 @@ set $overlay0 #6c7086
 set $surface2 #585b70
 set $surface1 #45475a
 set $surface0 #313244
-set $base #222222
+set $base #1a1a1a
 set $mantle #181825
 set $crust #11111b
 
@@ -39,7 +39,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:JetBrainsMono Nerd Font Semi-Bold 11
+font pango:Fira Code Semi-Bold 11
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanFks to pango).
@@ -92,8 +92,8 @@ bindsym $mod+q kill
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-3/launcher.sh
 
 # powermenu is for power options
-bindsym $mod+p exec --no-startup-id ~/.config/rofi/applets/bin/powermenu.sh 
-# bindsym $mod+p exec --no-startup-id ~/.config/rofi/powermenu/type-5/powermenu.sh 
+#bindsym $mod+p exec --no-startup-id ~/.config/rofi/applets/bin/powermenu.sh
+bindsym $mod+p exec --no-startup-id ~/.config/rofi/powermenu/type-2/powermenu.sh
 
 # Quicklinks
 bindsym $mod+minus exec --no-startup-id ~/.config/rofi/applets/bin/quicklinks.sh
@@ -234,13 +234,13 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
-# CapsLock and Numlock indicators 
+# CapsLock and Numlock indicators
 # bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 # bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        # mode hide      
+        # mode hide
         # position top
         modifier $mod
         # status_command i3status -c ~/.config/i3status/i3status.conf
@@ -248,7 +248,7 @@ bar {
         tray_padding 5
         separator_symbol "|"
         strip_workspace_numbers no
-        padding 0px 5px 0px 0px 
+        padding 0px 5px 0px 0px
          colors {
                 background         $base
                 statusline         $text
@@ -261,7 +261,7 @@ bar {
                 inactive_workspace $base  $base     $text
                 urgent_workspace   $base  $red      $crust
         }
-     
+
 }
 
 
@@ -289,7 +289,7 @@ hide_edge_borders smart_no_gaps
 focus_on_window_activation none
 workspace_auto_back_and_forth yes
 
-# # use this to add gaps between windows  
+# # use this to add gaps between windows
 # gaps inner 3px
 # smart_gaps on
 
@@ -303,7 +303,7 @@ client.placeholder       $overlay0 $base     $text    $overlay0  $overlay0
 client.background        $base
 
 
-exec_always --no-startup-id feh  --bg-scale ~/Pictures/wallpapers/starry_night.jpg
+exec_always --no-startup-id feh  --bg-scale ~/Pictures/wallpapers/digital_moon_and_mountains.jpeg
 exec_always --no-startup-id picom
 exec_always --no-startup-id ~/.screenlayout/'Normal Layout.sh'
 
@@ -323,11 +323,11 @@ exec_always --no-startup-id ~/.screenlayout/'Normal Layout.sh'
 #         bindsym a exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/Screenshots/$(date)";mode "default"
 #         #selection
 #         bindsym s exec --no-startup-id maim --select "/home/$USER/Pictures/Screenshots/$(date)";mode "default"
-        
+
 #         bindsym Escape mode "default"
 #         bindsym $mod+Print mode "default"
 #         bindsym Return mode "default"
-# } 
+# }
 
 # extend sleep time
 exec_always --no-startup-id xset s 900
@@ -335,12 +335,8 @@ exec_always --no-startup-id xset +dpms
 exec_always --no-startup-id xset dpms 0 0 1200
 
 # map capslock to escape
-exec_always --no-startup-id setxkbmap -option caps:escape
+#exec_always --no-startup-id setxkbmap -option caps:escape
 
-# # i3 battery popup
-# # visit https://github.com/rjekker/i3-battery-popup/tree/master
-# for_window [title="Battery Warning"] sticky enable
-# # make sure to add the script to /usr/local/bin 
-# # and to install the wav (sound) notification or any other sound you wish to play 
-# # script executes every 5 minutes to change that add the -t flag
-# exec --no-startup-id i3-battery-popup -L 20 -n -N -s /home/marwan/custom_scripts/i3-battery-popup/i3-battery-popup.wav 
+exec_always --no-startup-id xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+
+exec_always --no-startup-id copyq
