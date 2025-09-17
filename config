@@ -198,9 +198,9 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 
 # open file manager
-bindsym $mod+n exec nautilus
+bindsym $mod+n exec thunar
 #browser
-bindsym $mod+b exec brave-browser-stable
+bindsym $mod+b exec $HOME/downloaded_apps/zen/zen
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -243,31 +243,32 @@ bindsym $mod+r mode "resize"
 # bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 # bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
-# bar {
-#         status_command polybar
-#         mode invisible
-#         position top
-#         modifier $mod
-#         # status_command i3status -c ~/.config/i3status/i3status.conf
-#         tray_output primary
-#         tray_padding 5
-#         separator_symbol "|"
-#         strip_workspace_numbers no
-#         padding 0px 5px 0px 0px
-#          colors {
-#                 background         $base
-#                 statusline         $base
-#                 focused_statusline $text
-#                 focused_separator  $base
-#
-#                 # target           border bg        text
-#                 focused_workspace  $blue  $blue     $crust
-#                 active_workspace   $base  $surface2 $text
-#                 inactive_workspace $base  $base     $text
-#                 urgent_workspace   $base  $red      $crust
-#         }
-#
-# }
+bar {
+        # status_command polybar
+        # mode invisible
+        position top
+        modifier $mod
+        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+
+        tray_output primary
+        tray_padding 5
+        separator_symbol "|"
+        strip_workspace_numbers no
+        padding 0px 5px 0px 0px
+         colors {
+                background         $base
+                statusline         $base
+                focused_statusline $text
+                focused_separator  $base
+
+                # target           border bg        text
+                focused_workspace  $maroon  $maroon     $crust
+                active_workspace   $base  $surface2 $text
+                inactive_workspace $base  $base     $text
+                urgent_workspace   $base  $red      $crust
+        }
+
+}
 
 
 # custom modes
@@ -300,7 +301,7 @@ workspace_auto_back_and_forth yes
 
 #border colors
 # target                 title     bg        text     indicator  border
-client.focused           $base     $overlay2 $base    $rosewater $sapphire
+client.focused           $base     $overlay2 $base    $rosewater $maroon
 client.focused_inactive  $overlay0 $base     $text    $rosewater $overlay0
 client.unfocused         $base     $base     $text    $rosewater $base
 client.urgent            $peach    $base     $peach   $overlay0  $peach
@@ -310,8 +311,7 @@ client.background        $base
 
 exec_always --no-startup-id feh  --bg-scale ~/Pictures/wallpapers/mountains_water_night
 exec_always --no-startup-id picom
-exec_always --no-startup-id ~/.screenlayout/'Normal Layout.sh'
-
+exec_always --no-startup-id ~/.screenlayout/Normal_layout.sh
 
 ## Screenshots
 # bindsym $mod+Shift+s exec --no-startup-id maim --select | xclip -selection clipboard -t image/png;
@@ -346,4 +346,3 @@ exec_always --no-startup-id setxkbmap -option caps:escape
 exec_always --no-startup-id copyq
 # speed up repeat for key presses
 exec_always --no-startup-id xset r rate 220 35
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
